@@ -23,7 +23,7 @@ public class FlatMapTest {
     }
 
     private List<Survey> buildExampleSurveys() {
-        final List<Survey> surveys = new ArrayList<Survey>(2);
+        final List<Survey> surveys = new ArrayList<>(2);
 
         final Survey firstSurvey = new Survey("first");
         firstSurvey.addDomain(Domain.BROWSING_EXPERIENCE);
@@ -46,7 +46,7 @@ public class FlatMapTest {
     }
 
     private boolean assertEqualDomains(final Collection<Domain> domains, final List<Survey> surveys) {
-        final Collection<Domain> oldDomains = new ArrayList<>(2);
+        final Collection<Domain> oldDomains = new ArrayList<>(4);
         surveys.stream().forEach(survey -> oldDomains.addAll(survey.getDomains()));
 
         return oldDomains.containsAll(domains) && domains.containsAll(oldDomains);
